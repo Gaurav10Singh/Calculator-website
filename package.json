@@ -1,0 +1,19 @@
+{
+  "name": "garry",
+  "version": "1.0.0",
+  "description": "This for my website",
+  "main": "home.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "garry"
+  ],
+  "author": "garry",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "pug": "^3.0.2"
+  }
+}

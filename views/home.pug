@@ -1,0 +1,101 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Calculator Website
+    style
+      include ../MAIN/home.css
+  body
+    header
+      h1 Calculator Website
+      nav
+        ul
+          li
+            a(href='#') Home
+          li
+            a(href='/about') About Us
+          li
+            a(href='/contact_us') Contact Us
+    main
+      section.hero
+        h2 Calculate Anything, Anytime
+        p
+          | Our online calculator is the easiest and fastest way to get answers to all your mathematical equations.
+        button.btn(onclick='show()') Try Our Calculator Now
+      header#file
+        nav
+          ul
+            li
+              a(href='/BMI') BMI Calculator 
+            li
+              a(href='/Calculator') Basic Calculator
+            li
+              a(href='/BaseConvertor') Base Convertor
+            li
+              a(href='/LengthConvertor') LengthConvertor
+      section.features
+        .feature
+          img(src='https://www.medindia.net/patients/calculators/images/body-mass-index-bmi-chart.jpg' alt='Addition icon')
+          h3 BMI Calculator
+          p Free Body Mass Index calculator gives out the BMI value and categorizes BMI based on provided information from WHO and CDC for both adults and children.
+        .feature
+          img(src='https://cdn.dribbble.com/users/2164295/screenshots/6789009/004-calculator_4x.jpg?compress=1&resize=768x576&vertical=top' alt='Subtraction icon')
+          h3 Simple calculator
+          p A calculator is a device that performs arithmetic operations on numbers. Basic calculators can do only addition, subtraction, multiplication and division mathematical calculations.
+        .feature
+          img(src='https://play-lh.googleusercontent.com/6brVB7WRIzyxfRwFJk1h1raXZ5w8j2h5AzcQ-oFEXwEnHgy3KFsJD-awjPY9LQSqZCw=w327-h184-rw' alt='Multiplication icon')
+          h3 Base calculator
+          p How to do base calculations. First method is to convert each number to decimal, do the calculation and convert the result back to the base. Second method is to do the calculations with the specified base. This method is more straight forward but more hard to implement.
+        .feature
+          img(src='https://math-media.byjusfutureschool.com/bfs-math/2022/12/13104033/Asset-1-1-1.png' alt='Division icon')
+          h3 Length convertion calculator
+          p Length conversion is the process of converting lengths from one unit to another. For example, kilometers can be converted to meters, miles can be converted to yards, yards can be converted to inches, and so on. Length conversion is needed for matching measurements across different scales.
+        #content
+          header
+            h1 Number Conversion Theory
+          main
+            p
+              | Number conversion theory is a mathematical theory that explains how to convert numbers from one
+              | base
+              | to another. It is particularly useful in computer science and digital electronics.
+            h2 Number Bases
+            p
+              | A number base, or radix, is the number of digits or symbols used to represent numbers. The most
+              | common number bases are:
+            ul
+              li Binary (base 2) - uses only 0 and 1
+              li Octal (base 8) - uses digits 0-7
+              li Decimal (base 10) - uses digits 0-9
+              li Hexadecimal (base 16) - uses digits 0-9 and letters A-F
+            h2 Conversion Process
+            p To convert a number from one base to another, follow these steps:
+            ol
+              li Write the number in the original base
+              li Divide the number by the new base
+              li Write down the remainder
+              li Repeat steps 2 and 3 with the quotient until the quotient is 0
+              li Write the remainders in reverse order to get the new number in the new base
+            h2 Examples
+            p Here are some examples of number conversion:
+            table
+              tbody
+                tr
+                  th Original Number (Base 2)
+                  th New Number (Base 10)
+                tr
+                  td 1010
+                  td 10
+                tr
+                  td 11110000
+                  td 240
+            h2 Conclusion
+            p
+              | Number conversion theory is an important concept in computer science and digital electronics. By
+              | understanding how to convert numbers from one base to another, programmers and engineers can
+              | work
+              | with different number systems and improve the efficiency of their systems.
+    footer
+      p &copy; 2023 Calculator Website. All rights reserved.
+    script 
+      include ../MAIN/home.js

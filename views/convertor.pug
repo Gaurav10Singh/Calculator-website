@@ -1,0 +1,175 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Base Convertor
+    style.
+      /* apply some basic styles to the page */
+      * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      }
+      body {
+      background-color: #222222;
+      }
+      /* style the calculator container */
+      .calculator {
+      display: flex;
+      justify-content: center;
+      margin: 20px auto;
+      max-width: 400px;
+      padding: 20px;
+      background-image:linear-gradient(#5ea6ff69,#77ff5e) ;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      }
+      /* style the input and select elements */
+      input,
+      select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #973f3f;
+      font-size: 16px;
+      }
+      /* style the button container */
+      .bat {
+      display: flex;
+      justify-content: space-between;
+      }
+      /* style the Convert and Reset buttons */
+      .converter,
+      button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #4CAF50;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      }
+      .converter:hover,
+      button:hover {
+      background-color: #2b6e2e;
+      }
+      /* style the Result textarea */
+      textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      resize: none;
+      }
+      /* add media query for smaller screens */
+      @media screen and (max-width: 480px) {
+      .calculator {
+      max-width: 100%;
+      padding: 10px;
+      }
+      input,
+      select,
+      textarea {
+      font-size: 14px;
+      }
+      }
+  body
+    .calculator
+      label(for='x') Enter number
+      input#x(name='x', type='text')
+    .calculator
+      label(for='FBase') From Base
+      select#sel1(name='FBase')
+        option 2
+        option 3
+        option 4
+        option 5
+        option 6
+        option 7
+        option 8
+        option 9
+        option 10
+        option 11
+        option 12
+        option 13
+        option 14
+        option 15
+        option 16
+        option 17
+        option 18
+        option 19
+        option 20
+    .calculator
+      label(for='ToBase') To Base
+      select#sel2(name='ToBase')
+        option 2
+        option 3
+        option 4
+        option 5
+        option 6
+        option 7
+        option 8
+        option 9
+        option 10
+        option 11
+        option 12
+        option 13
+        option 14
+        option 15
+        option 16
+        option 17
+        option 18
+        option 19
+        option 20
+    .calculator
+      .bat
+        button.converter(type='button', title='Convert', onclick='onconvert()') Convert
+        // <button type="button" title="Reset" onclick="onreset()">Reset</button>
+    .calculator
+      label(for='ans') Result
+      textarea#ans(name='ans', cols='2', rows='2', readonly='')
+    script.
+      let a = document.querySelector('#sel1');
+      let b = document.querySelector('#sel2');
+      let c = document.querySelector('#x');
+      function onconvert() {
+      let decimalValue = convertToDecimal(c.value, a.value);
+      let newNumber = convertFromDecimal(decimalValue, b.value);
+      console.log(c.value + " in base " + a.value + " is " + newNumber + " in base " + b.value);
+      document.getElementById('ans').innerHTML = newNumber;
+      }
+      function convertToDecimal(number, base) {
+      let decimalValue = 0;
+      let power = 0;
+      for (let i = number.length - 1; i >= 0; i--) {
+      let digit = parseInt(number.charAt(i), base);
+      decimalValue += digit * Math.pow(base, power);
+      power++;
+      }
+      return decimalValue;
+      }
+      function convertFromDecimal(decimalValue, base) {
+      let newNumber = "";
+      while (decimalValue > 0) {
+      let remainder = decimalValue % base;
+      newNumber = remainder.toString() + newNumber;
+      decimalValue = Math.floor(decimalValue / base);
+      }
+      return newNumber;
+      }
+      // function onreset(){
+      //     // Clear the input field
+      //     document.getElementById("x").value = "";
+      //     // Reset the select elements to the default option (2)
+      //     document.getElementById("sel1").selectedIndex = 2;
+      //     document.getElementById("sel2").selectedIndex = 2;
+      //     // Clear the result field
+      //     document.getElementById("ans").innerHTML = "";
+      // }

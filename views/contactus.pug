@@ -1,0 +1,131 @@
+doctype html
+html
+  head
+    title Contact Us
+    style.
+      
+      body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      }
+      header {
+      border-radius: 10px;
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      }
+      nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      }
+      nav ul {
+      list-style: none;
+      display: flex;
+      }
+      nav li {
+      margin-right: 1rem;
+      }
+      nav a {
+      color: #fff;
+      text-decoration: none;
+      }
+      nav a:hover {
+      text-decoration: underline;
+      }
+      h1 {
+      background-color: #333;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      }
+      .contact-info {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row-reverse;
+      transition: color 0.3s ease;
+      }
+      .contact-method {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      border-radius: 50px;
+      width: 20%;
+      box-shadow: 0px 0px 16px rgb(255 255 255 / 58%);
+      text-align: center;
+      background-image: linear-gradient(rgb(0 102 0 / 53%), green);
+      }
+      .contact-method img {
+      width: 30px;
+      padding-left: 30%;
+      margin-right: 10px;
+      border-radius:5px;
+      }
+      .contact-method a {
+      color: #333;
+      text-decoration: none;
+      }
+      /* Custom colors */
+      .contact-method img {
+      filter: brightness(0.8);
+      }
+      .contact-method a {
+      color: #007bff;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      }
+      .contact-method a:hover {
+      color: #ff6b6b;
+      }
+      .contact-info .contact-mathod:hover{
+        background-color:#ff6b6b;
+      }
+      @media (max-width: 600px) {
+      header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      }
+      nav ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+      }
+      nav li {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+      }
+      h1 {
+      font-size: 20px;
+      }
+      .contact-method img {
+      width: 20px;
+      }
+      }
+  body
+    header
+      h1 Calculator Website
+      nav
+        ul
+          li
+            a(href='/') Home
+          li
+            a(href='/about') About Us
+          li
+            a(href='/contact_us') Contact Us
+    
+      h1 Contact Us
+      .contact-info
+        .contact-method
+          img(src='https://res.cloudinary.com/teepublic/image/private/s--D6Gq3XRg--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/t_watermark_lock/c_limit,f_auto,h_630,q_90,w_630/v1677419293/production/designs/40052978_0.jpg', alt='Instagram Logo', style='filter: brightness(1.2);')
+          a(href='https://www.instagram.com/gauravkrsingh_13') Instagram
+        .contact-method
+          img(src='https://lh3.googleusercontent.com/a/AAcHTtcprMBx3Dm3EEQXon-wt28Ex3NHfdYjCFjAujhfBA=s288-c-no', alt='Gmail Logo', style='filter: brightness(1.2);')
+          a(href='mailto:gauravsingh02195@gmail.com') Email
+        .contact-method
+          img(src='https://media.licdn.com/dms/image/D4D03AQGZHJi9p-uW1A/profile-displayphoto-shrink_800_800/0/1679234820386?e=1691020800&v=beta&t=5ph6wHFifL1j2xByojPgE6ine_QbDRQWgBLZqbnXrsc', alt='LinkedIn Logo', style='filter: brightness(1.2);')
+          a(href='https://www.linkedin.com/in/gaurav-singh-11b596239') LinkedIn

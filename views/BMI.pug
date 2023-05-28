@@ -1,0 +1,186 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    | &#x9;
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    | &#x9;
+    title BMI Calculator
+    | &#x9;
+    style.
+      body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      }
+      h1 {
+      text-align: center;
+      color: #333;
+      }
+      form {
+      background-image:linear-gradient(#badb0079,#d9ff00) ;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: 0 auto;
+      }
+      input[type="number"], select {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 16px;
+      }
+      input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      }
+      input[type="submit"]:hover {
+      background-color: #3e8e41;
+      }
+      .bmi-result {
+      background-image:linear-gradient(#0099ff8f,#0099ff) ;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+      }
+      .bmi-result h2 {
+      color: #333;
+      }
+      .bmi-result p {
+      font-size: 24px;
+      color: #493c3c;
+      font-weight: bold;
+      border-bottom: 2px solid #3a2f2f;
+      }
+      .bmi-scale {
+      margin: 20px auto;
+      max-width: 500px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      display: none;
+      }
+      .bmi-scale th, .bmi-scale td {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      }
+      @media screen and (max-width: 768px) {
+      form {
+      max-width: 100%;
+      }
+      }
+  body
+    h1 BMI Calculator
+    | &#x9;
+    form(onsubmit='calculateBMI(); return false;')
+      label(for='weight') Weight (kg):
+      | &#x9;&#x9;
+      input#weight(type='number', name='weight', required='')
+      | &#x9;&#x9;
+      label(for='height') Height (cm):
+      | &#x9;&#x9;
+      input#height(type='number', name='height', required='')
+      | &#x9;&#x9;
+      input(type='submit', value='Calculate')
+    | &#x9;
+    #bmiResult.bmi-result
+      h2 Your BMI Result:
+      | &#x9;&#x9;
+      p#bmiValue
+      | &#x9;&#x9;
+      .bmi-scale
+        p Underweight: &lt; 18.5
+        | &#x9;&#x9;&#x9;
+        .scale-container
+          .scale-underweight
+        | &#x9;&#x9;&#x9;
+        p Normal weight: 18.5 - 24.9
+        | &#x9;&#x9;&#x9;
+        .scale-container
+          .scale-normal
+        | &#x9;&#x9;&#x9;
+        p Overweight: 25 - 29.9
+        | &#x9;&#x9;&#x9;
+        .scale-container
+          .scale-overweight
+        | &#x9;&#x9;&#x9;
+        p Obesity: &gt; 30
+        | &#x9;&#x9;&#x9;
+        .scale-container
+          .scale-obesity
+    | &#x9;
+    style.
+      /* BMI scale styles */
+      .bmi-scale {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      }
+      .scale-container {
+      display: flex;
+      align-items: center;
+      height: 20px;
+      margin-bottom: 10px;
+      }
+      .scale-container div {
+      height: 100%;
+      border-radius: 5px;
+      }
+      .scale-underweight {
+      background-color: #4CAF50;
+      width: 25%;
+      }
+      .scale-normal {
+      background-color: #FFC107;
+      width: 40%;
+      }
+      .scale-overweight {
+      background-color: #FF9800;
+      width: 25%;
+      }
+      .scale-obesity {
+      background-color: #F44336;
+      width: 10%;
+      }
+    | &#x9;
+    script.
+      function calculateBMI() {
+      var weight = document.getElementById("weight").value;
+      var height = document.getElementById("height").value;
+      var bmi = weight / ((height/100) * (height/100));
+      document.getElementById("bmiValue").innerHTML = bmi.toFixed(2);
+      // Change scale color based on BMI value
+      var scaleColor;
+      if (bmi < 18.5) {
+      scaleColor = "#4CAF50"; // Underweight
+      } else if (bmi >= 18.5 && bmi <= 24.9) {
+      scaleColor = "#FFC107"; // Normal weight
+      } else if (bmi >= 25 && bmi <= 29.9) {
+      scaleColor = "#FF9800"; // Overweight
+      } else {
+      scaleColor = "#F44336"; // Obesity
+      }
+      document.querySelector(".scale-underweight").style.width = ((18.5/100)*100)+"%";
+      document.querySelector(".scale-normal").style.width = ((24.9-18.5)/100)*100+"%";
+      document.querySelector(".scale-overweight").style.width = ((29.9-25)/100)*100+"%";
+      document.querySelector(".scale-obesity").style.width = ((100-30)/100)*100+"%";
+      document.querySelector(".scale-container div").style.backgroundColor = scaleColor;
+      document.getElementById("bmiResult").style.display = "block";
+      }

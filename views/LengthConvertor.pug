@@ -1,0 +1,163 @@
+doctype html
+html
+  head
+    title Length Conversion
+    style.
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+      body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(rgba(13, 158, 13, 0.644), rgba(1, 1, 130, 0.644));
+      padding: 20px;
+      background-repeat: no-repeat;
+      }
+      .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      }
+      h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+      }
+      form {
+      margin-bottom: 20px;
+      }
+      label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #333;
+      }
+      input[type="number"],
+      select {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      }
+      button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      }
+      button:hover {
+      background-color: #45a049;
+      }
+      p {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      }
+      @media only screen and (max-width: 600px) {
+      .container {
+      max-width: 100%;
+      }
+      }
+    script.
+      function convertLength() {
+      var inputLength = parseFloat(document.getElementById("inputLength").value);
+      var inputUnit = document.getElementById("inputUnit").value;
+      var outputUnit = document.getElementById("outputUnit").value;
+      var outputLength;
+      // Conversion calculations
+      switch (inputUnit) {
+      case "mm":
+      switch (outputUnit) {
+      case "cm":
+      outputLength = inputLength / 10;
+      break;
+      case "m":
+      outputLength = inputLength / 1000;
+      break;
+      case "km":
+      outputLength = inputLength / 1000000;
+      break;
+      default:
+      outputLength = inputLength;
+      }
+      break;
+      case "cm":
+      switch (outputUnit) {
+      case "mm":
+      outputLength = inputLength * 10;
+      break;
+      case "m":
+      outputLength = inputLength / 100;
+      break;
+      case "km":
+      outputLength = inputLength / 100000;
+      break;
+      default:
+      outputLength = inputLength;
+      }
+      break;
+      case "m":
+      switch (outputUnit) {
+      case "mm":
+      outputLength = inputLength * 1000;
+      break;
+      case "cm":
+      outputLength = inputLength * 100;
+      break;
+      case "km":
+      outputLength = inputLength / 1000;
+      break;
+      default:
+      outputLength = inputLength;
+      }
+      break;
+      case "km":
+      switch (outputUnit) {
+      case "mm":
+      outputLength = inputLength * 1000000;
+      break;
+      case "cm":
+      outputLength = inputLength * 100000;
+      break;
+      case "m":
+      outputLength = inputLength * 1000;
+      break;
+      default:
+      outputLength = inputLength;
+      }
+      break;
+      default:
+      outputLength = inputLength;
+      }
+      document.getElementById("outputLength").textContent = outputLength;
+      }
+  body
+    .container
+      h1 Length Conversion
+      form
+        label(for='inputLength') Input Length:
+        input#inputLength(type='number', placeholder='Enter length', required='')
+        label(for='inputUnit') Input Unit:
+        select#inputUnit
+          option(value='mm') Millimeters (mm)
+          option(value='cm') Centimeters (cm)
+          option(value='m') Meters (m)
+          option(value='km') Kilometers (km)
+        label(for='outputUnit') Output Unit:
+        select#outputUnit
+          option(value='mm') Millimeters (mm)
+          option(value='cm') Centimeters (cm)
+          option(value='m') Meters (m)
+          option(value='km') Kilometers (km)
+        button(onclick='convertLength()') Convert
+      p
+        | Output Length: 
+        span#outputLength
